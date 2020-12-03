@@ -1,0 +1,15 @@
+.about {
+
+    .tagline {
+        color: $dark-offwhite;
+        font-size: 12px;
+        text-decoration: underline;
+    }
+
+    .readme {
+        margin-top: 10px;
+        border: 1px dashed $dark-offwhite;
+        padding: 20px;
+        background-color: $white;
+    }
+}

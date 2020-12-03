@@ -4,10 +4,18 @@ import { hot } from 'react-hot-loader';
 import Header from './Header';
 
 import '../sass/main.scss';
+import About from './About';
+import Repos from './Repos';
 
 
 const App = ({message}) => (
+  <div className='main-wrapper'>
     <Header />
+      <div className='main'>
+        <About />
+        <Repos />
+      </div>
+    </div>
 );
 
 App.propTypes = { 
