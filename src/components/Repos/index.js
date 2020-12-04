@@ -8,7 +8,17 @@ export default class Repos extends React.Component {
     }
 
     async componentDidMount() {
-        const repos = await this.getGithubRepositories();
+        let repos = await this.getGithubRepositories();
+        repos = repos.filter(repo => {
+            switch(repo.name) {
+                case 'aedenmurray.io':
+                case 'aedenmurray':
+                case 'coexist-parser-proxy':
+                    return false;
+                default:
+                    return true;
+            }
+        })
         this.setState({repos: repos});
     }
 
@@ -24,13 +34,22 @@ export default class Repos extends React.Component {
     }
 
     render() {
+        console.log(this.state.repos);
         return (
             <div className='repos-wrapper'>
                 <a href="https://github.com/aedenmurray?tab=repositories" target="_blank">
-                    <p class="tagline">aedenmurray/repos</p>
+                    <p className="tagline">aedenmurray/repos</p>
                 </a>
                 <div className='repos'>
-                    {this.state.repos.map(repo => <p>{repo.id}</p>)}
+                    {this.state.repos.map(repo => (
+                        <a href={repo.html_url} target="_blank">
+                            <div className="repo">
+                                <p className="repo-name">{repo.name}</p>
+                                <p className="repo-desc">{repo.description}</p>
+                                <ion-icon name="cube-outline"></ion-icon>
+                            </div>
+                        </a>
+                    ))}
                 </div>               
             </div>
         );

@@ -1,0 +1,33 @@
+.repos {
+    display: flex;
+
+    .repo {
+        width: 200px;
+        height: 200px;
+        background-color: $white;
+        margin-right: 10px;
+        border: 1px dashed $dark-offwhite;
+        padding: 10px;
+        margin-top: 10px;
+        position: relative;
+
+        .repo-name {
+            font-family: 'Roboto Mono';
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .repo-desc {
+            font-family: 'Roboto Mono';
+            color: $light-gray;
+            font-size: 12px;
+        }
+
+        ion-icon {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 20px;
+        }
+    }
+}
