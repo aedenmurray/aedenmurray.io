@@ -8,10 +8,10 @@ import About from './About';
 import Repos from './Repos';
 
 
-const App = ({message}) => (
-  <div className='main-wrapper'>
+const App = () => (
+  <div className="main-wrapper">
     <Header />
-      <div className='main'>
+      <div className="main">
         <About />
         <Repos />
       </div>

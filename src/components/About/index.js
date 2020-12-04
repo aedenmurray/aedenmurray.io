@@ -1,40 +1,34 @@
-import React from 'react';
-import http from 'http';
+import React, {useState, useEffect} from 'react';
 import ReactMarkdown from 'react-markdown';
+import http from 'http';
 
-export default class About extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {readme: null};
-    }
+const About = () => {
+    const [readme, setReadme] = useState(null);
 
-    async componentDidMount() {
-        const readme = await this.getGithubReadme();
-        this.setState({readme: readme});
-    }
-
-    async getGithubReadme() {
-        return new Promise((resolve, reject) => {
+    useEffect(() => {
+        const getGithubReadme = async () => {
             const request = http.get('https://raw.githubusercontent.com/aedenmurray/aedenmurray/main/README.md');
             request.on('response', (response) => {
                 let rawData = '';
                 response.on('data', (chunk) => rawData += chunk);
-                response.on('end', () => resolve(rawData));
+                response.on('end', () => setReadme(rawData));
             });
-        });
-    }
+        }
 
-    render() {
-        return (
-            <div className='about'>
-                <a href="https://github.com/aedenmurray/aedenmurray/blob/main/README.md" target="_blank">
-                    <p class="tagline">aedenmurray/readme</p>
-                </a>
+        getGithubReadme();
+    }, []);
 
-                <div className='readme'>
-                    <ReactMarkdown>{this.state.readme}</ReactMarkdown>
-                </div>
+    return (
+        <div className='about'>
+            <a href="https://github.com/aedenmurray/aedenmurray/blob/main/README.md" target="_blank">
+                <p className="tagline">aedenmurray/readme</p>
+            </a>
+
+            <div className='readme'>
+                <ReactMarkdown>{readme}</ReactMarkdown>
             </div>
-        );
-    }
+        </div>
+    );
 }
+
+export default About;
