@@ -1,21 +1,21 @@
 import React, {useState, useEffect} from 'react';
 import ReactMarkdown from 'react-markdown';
-import http from 'http';
 
 const About = () => {
     const [readme, setReadme] = useState(null);
 
     useEffect(() => {
-        const getGithubReadme = async () => {
-            const request = http.get('https://raw.githubusercontent.com/aedenmurray/aedenmurray/main/README.md');
-            request.on('response', (response) => {
-                let rawData = '';
-                response.on('data', (chunk) => rawData += chunk);
-                response.on('end', () => setReadme(rawData));
-            });
+        const request = new XMLHttpRequest();
+        request.onreadystatechange = () => {
+            if(request.readyState === 4) {
+                if (request.status === 200) {
+                    setReadme(request.responseText);
+                }
+            }
         }
 
-        getGithubReadme();
+        request.open('GET', 'https://raw.githubusercontent.com/aedenmurray/aedenmurray/main/README.md');
+        request.send();
     }, []);
 
     return (

@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+var webpack = require('webpack');
 
 const HtmlWebpackPluginConfig = new HtmlWebPackPlugin({
   template: './src/index.html',
@@ -25,14 +26,26 @@ module.exports = {
        },
     ]
   },
+  optimization: {
+    splitChunks: { chunks: 'all' }
+  },
   mode: 'development',
   devServer: {
     historyApiFallback: true,
     compress: true,
     port: 3030,
-    open: true
+    open: true,
+    hot: true
   },
   plugins: [
-    HtmlWebpackPluginConfig
-  ]
+    HtmlWebpackPluginConfig,
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
+    }),
+  ],
+  resolve: {
+    fallback: {
+      'path': require.resolve("path-browserify"),
+    }
+  }
 };
