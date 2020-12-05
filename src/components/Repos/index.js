@@ -16,7 +16,6 @@ const Repos = () => {
     const [repos, setRepos] = useState([]);
 
     useEffect(() => {
-
         const request = new XMLHttpRequest();
         request.onreadystatechange = () => {
             if(request.readyState === 4) {
