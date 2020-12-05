@@ -12,21 +12,21 @@ const Header = () => {
                 <p className="tagline">aeden@aedenmurray.io</p>
 
                 <div className="buttons">
-                    <Button 
-                        text="GitHub" 
-                        icon="logo-github" 
+                    <Button
+                        text="GitHub"
+                        icon="logo-github"
                         href="https://github.com/aedenmurray"
                     />
 
-                    <Button 
-                        text="Twitter" 
-                        icon="logo-twitter" 
+                    <Button
+                        text="Twitter"
+                        icon="logo-twitter"
                         href="https://twitter.com/aedenmurray"
                     />
                 </div>
             </div>
         </div>
     );
-}
+};
 
 export default Header;

@@ -7,19 +7,18 @@ import '../sass/main.scss';
 import About from './About';
 import Repos from './Repos';
 
-
 const App = () => (
-  <div className="main-wrapper">
-    <Header />
-      <div className="main">
-        <About />
-        <Repos />
-      </div>
+    <div className="main-wrapper">
+        <Header />
+        <div className="main">
+            <About />
+            <Repos />
+        </div>
     </div>
 );
 
-App.propTypes = { 
-  message: PropTypes.string 
-}; 
+App.propTypes = {
+    message: PropTypes.string,
+};
 
 export default hot(module)(App);

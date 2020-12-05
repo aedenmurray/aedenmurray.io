@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Button = ({text, icon, href}) => (
+const Button = ({ text, icon, href }) => (
     <a href={href} target="_blank">
         <button className="main-button">
             <div className="icon-wrapper">
