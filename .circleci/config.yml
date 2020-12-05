@@ -1,7 +1,21 @@
-version: 2.1
-orbs:
-    node: circleci/node@3.0.0
-workflows:
-    node-tests:
-        jobs:
-            - node/test
+# aedenmurray.io CI
+
+version: 2.2
+jobs:
+    build:
+        branches:
+            only:
+                - master
+
+        docker:
+            - image: cimg/node:12.18.3
+
+        steps:
+            - checkout
+
+            - run:
+                  name: Installing Dependencies
+                  command: |
+                      sudo apt update
+                      sudo apt install awscli
+                      npm install
