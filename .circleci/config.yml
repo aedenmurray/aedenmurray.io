@@ -1,5 +1,6 @@
 # aedenmurray.io CI
 # prettier-ignore
+version: 2.1
 
 jobs:
   build-website:
@@ -11,7 +12,7 @@ jobs:
       - run:
           name: 'Install dependencies'
           command: |
-            npm install -s
+            npm install
 
       - run:
           name: 'Build website'
@@ -32,7 +33,7 @@ jobs:
 
       - run:
           name: 'x'
-          command: ls
+          command: printenv
 
 
 workflows:
@@ -45,5 +46,6 @@ workflows:
               only:
                 - master
       - deploy-website:
+          context: AWS
           requires:
             - build-website
