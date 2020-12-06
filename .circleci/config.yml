@@ -19,6 +19,7 @@ jobs:
             npm run build
 
       - persist_to_workspace:
+          root: ~/
           paths: 
            - dist
 
@@ -29,7 +30,7 @@ jobs:
     steps:
       - attach_workspace:
           at: dist
-          
+
       - run:
           name: 'x'
           command: ls
