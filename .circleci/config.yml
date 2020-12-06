@@ -11,12 +11,17 @@ jobs:
       - run:
           name: 'Install dependencies'
           command: |
-            npm install
+            npm install -q
+
+      - run:
+          name: 'Build website'
+          command: |
+            npm run build
 
   deploy-website:
     docker:
       - image: cimg/node:15.3.0
-      
+
     steps:
       - run:
           name: 'x'
