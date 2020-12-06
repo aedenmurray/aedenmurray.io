@@ -11,9 +11,13 @@ jobs:
       - run:
           name: 'Install dependencies'
           command: |
-            sudo apt update
-            sudo apt install awscli
             npm install
+
+  deploy-website:
+    steps:
+      - run:
+          name: 'x'
+          command: ls
 
 
 workflows:
@@ -25,3 +29,6 @@ workflows:
             branches:
               only:
                 - master
+      - deploy-website:
+          requires:
+            - build-website
