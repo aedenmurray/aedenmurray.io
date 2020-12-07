@@ -47,15 +47,6 @@ jobs:
           command: |
             aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_DIST_ID --paths '/*'
 
-      - run:
-          name: Purge cache
-          command: |
-            curl -X POST "https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONE/purge_cache" \
-            -H "X-Auth-Email: aeden@aedenmurray.io" \
-            -H "X-Auth-Key: $CLOUDFLARE_API_TOKEN" \
-            -H "Content-Type: application/json" \
-            --data '{"purge_everything":true}'
-
 
 
 workflows:

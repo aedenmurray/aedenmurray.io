@@ -8,7 +8,7 @@ const Header = () => {
                 <div className="profile-picture-wrapper">
                     <div className="profile-picture"></div>
                 </div>
-                <h1>Aedn Murray</h1>
+                <h1>Aeden Murray</h1>
                 <p className="tagline">aeden@aedenmurray.io</p>
 
                 <div className="buttons">
