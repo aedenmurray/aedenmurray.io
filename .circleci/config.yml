@@ -31,9 +31,17 @@ jobs:
       - attach_workspace:
           at: dist
 
-      - aws-s3/sync:
-          from: dist
-          to: s3://aedenmurray.io
+      - run:
+          name: Install dependencies
+          command: |
+            sudo apt update
+            sudo apt install awscli
+
+      - run:
+          name: Sync to S3
+          command: |
+            aws s3 sync dist/ s3://aedenmurray.io --delete
+
 
 
 workflows:
