@@ -7,6 +7,37 @@ const HtmlWebpackPluginConfig = new HtmlWebPackPlugin({
     filename: './index.html',
 });
 
+const CopyWebpackPluginConfig = new CopyWebpackPlugin({
+    patterns: [
+        { from: './src/site.webmanifest' },
+        { from: './src/assets/favicons/favicon.ico', to: 'assets/favicons' },
+        {
+            from: './src/assets/favicons/favicon-32x32.png',
+            to: 'assets/favicons',
+        },
+        {
+            from: './src/assets/favicons/favicon-16x16.png',
+            to: 'assets/favicons',
+        },
+        {
+            from: './src/assets/favicons/apple-touch-icon.png',
+            to: 'assets/favicons',
+        },
+        {
+            from: './src/assets/favicons/android-chrome-512x512.png',
+            to: 'assets/favicons',
+        },
+        {
+            from: './src/assets/favicons/android-chrome-192x192.png',
+            to: 'assets/favicons',
+        },
+    ],
+});
+
+const processPluginProvider = new webpack.ProvidePlugin({
+    process: 'process/browser',
+});
+
 module.exports = {
     module: {
         rules: [
@@ -45,20 +76,8 @@ module.exports = {
     },
     plugins: [
         HtmlWebpackPluginConfig,
-        new CopyWebpackPlugin({
-            patterns: [
-                { from: './src/favicon.ico' },
-                { from: './src/favicon-32x32.png' },
-                { from: './src/favicon-16x16.png' },
-                { from: './src/apple-touch-icon.png' },
-                { from: './src/android-chrome-512x512.png' },
-                { from: './src/android-chrome-192x192.png' },
-                { from: './src/site.webmanifest' },
-            ],
-        }),
-        new webpack.ProvidePlugin({
-            process: 'process/browser',
-        }),
+        CopyWebpackPluginConfig,
+        processPluginProvider,
     ],
     resolve: {
         fallback: {
