@@ -63,6 +63,3 @@ workflows:
             - AWS
           requires:
             - build-website
-
-orbs:
-  aws-s3: circleci/aws-s3@2.0.0
