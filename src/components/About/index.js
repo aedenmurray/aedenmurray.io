@@ -26,6 +26,7 @@ const About = () => {
             <a
                 href="https://github.com/aedenmurray/aedenmurray/blob/main/README.md"
                 target="_blank"
+                rel="noopener"
             >
                 <p className="tagline">aedenmurray/readme</p>
             </a>

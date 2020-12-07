@@ -35,6 +35,7 @@ const Repos = () => {
             <a
                 href="https://github.com/aedenmurray?tab=repositories"
                 target="_blank"
+                rel="noopener"
             >
                 <p className="tagline">aedenmurray/repos</p>
             </a>
