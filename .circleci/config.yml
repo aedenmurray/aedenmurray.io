@@ -33,7 +33,7 @@ jobs:
 
       - run:
           name: 'x'
-          command: printenv
+          command: echo $AWS_ACCESS_KEY_ID
 
 
 workflows:
@@ -46,6 +46,7 @@ workflows:
               only:
                 - master
       - deploy-website:
-          context: AWS
+          context: 
+            - AWS
           requires:
             - build-website
