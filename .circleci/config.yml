@@ -31,9 +31,9 @@ jobs:
       - attach_workspace:
           at: dist
 
-      - run:
-          name: 'x'
-          command: echo $AWS_ACCESS_KEY_ID
+      - aws-s3/sync:
+          from: dist
+          to: s3://aedenmurray.io
 
 
 workflows:
@@ -50,3 +50,6 @@ workflows:
             - AWS
           requires:
             - build-website
+
+orbs:
+  aws-s3: circleci/aws-s3@2.0.0
