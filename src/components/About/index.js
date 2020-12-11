@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import gfm from 'remark-gfm';
 
 const About = () => {
     const [readme, setReadme] = useState(null);
@@ -33,7 +32,7 @@ const About = () => {
             </a>
 
             <div className="readme">
-                <ReactMarkdown plugins={[gfm]}>{readme}</ReactMarkdown>
+                <ReactMarkdown>{readme}</ReactMarkdown>
             </div>
         </div>
     );
