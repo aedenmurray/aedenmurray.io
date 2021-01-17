@@ -59,7 +59,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
       - deploy-website:
           context: 
             - AWS
