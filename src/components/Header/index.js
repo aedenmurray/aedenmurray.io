@@ -23,6 +23,12 @@ const Header = () => {
                         icon="logo-twitter"
                         href="https://twitter.com/aedenmurray"
                     />
+
+                    <Button
+                        text="LinkedIn"
+                        icon="logo-linkedin"
+                        href="https://linkedin.com/in/aedenmurray"
+                    />
                 </div>
             </div>
         </div>
